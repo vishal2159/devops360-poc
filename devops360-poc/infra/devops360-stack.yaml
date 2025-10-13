@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DevOps360 minimal infra (DynamoDB, SNS)
+
+Resources:
+  DevOpsLocksTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: DevOps360_Locks
+      AttributeDefinitions:
+        - AttributeName: env
+          AttributeType: S
+      KeySchema:
+        - AttributeName: env
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  DevOpsSNSTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: DevOps360Alerts
+
+Outputs:
+  LocksTableName:
+    Value: !Ref DevOpsLocksTable
+  SNSTopicArn:
+    Value: !Ref DevOpsSNSTopic

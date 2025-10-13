@@ -1,0 +1,40 @@
+Slide 1 — Title:
+
+DevOps360 — Self-Healing CI/CD Dashboard (Free-Tier POC)
+Presenter:
+
+Slide 2 — Problem:
+
+Manual monitoring, manual remediation, and environment collisions slow down deployments and increase MTTR.
+
+Slide 3 — Solution:
+
+Lock API prevents parallel deploys to same environment.
+Auto-Heal Lambda analyzes failures and triggers remediation.
+Unified dashboard (Power BI / Kibana) shows environment usage & infra load.
+
+Slide 4 — Architecture:
+
+(paste ASCII diagram or create a visual using boxes: GitHub → LockAPI → EC2; CloudWatch & Auto-Heal → Power BI)
+
+Slide 5 — Demo Flow:
+
+Push commit → GH Actions checks lock → acquires → deploys → releases
+Simulate busy env: lock manually → GH Actions fails early (shows owner)
+Simulate failure: call analyze-log → Lambda recommends action → SNS alert
+
+Slide 6 — Tech Stack:
+
+GitHub Actions, Lambda (Function URL), DynamoDB, EC2 (t2.micro), SNS, Power BI or Kibana
+
+Slide 7 — Business Value:
+
+Reduce human dependency, reduce MTTR, prevent collisions, provide leadership visibility
+
+Slide 8 — Next Steps:
+
+Harden security (API Auth), use OIDC for GitHub -> IAM, add SSM remediation, extend Auto-Heal rules with ML
+
+Slide 9 — Q&A / Contact
+
+Your contact info

@@ -1,0 +1,12 @@
+# boto3 is available in Lambda by default; leave empty or include libs if used
+
+Deploying the Lambda quickly (console)
+
+Create DynamoDB table DevOps360_Locks with partition key env (String).
+Create SNS topic (optional) and note ARN.
+In Lambda console create a new function devops360-main (Python 3.9+), paste this code.
+Set environment variable SNS_ARN to your SNS topic ARN (or leave blank for demo without SNS).
+Add IAM permission to Lambda role: dynamodb:PutItem, dynamodb:GetItem, dynamodb:DeleteItem, sns:Publish.
+In Lambda, go to Configuration → Function URL and create a Function URL with NONE auth for demo only. Copy the Function URL.
+Your LOCK_API_URL = <function-url> (e.g., https://xy.execute-api.aws...)
+Security note: Function URL with no auth is for demo only. In production use API Gateway + IAM/Auth.
