@@ -24,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         # working-directory: /app
-        run: npm i
+        run: npm ci
         
 
       - name: Run tests
