@@ -23,12 +23,12 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        working-directory: /app
+        # working-directory: /app
         run: npm ci
         
 
       - name: Run tests
-        working-directory: /app
+        # working-directory: /app
         run: npm test
 
       - name: Check env lock
