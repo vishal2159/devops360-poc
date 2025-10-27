@@ -23,12 +23,12 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        working-directory: app
+        working-directory: ./devops360-pocapp
         run: npm ci
        
 
       - name: Run tests
-        working-directory: app
+        working-directory: ./devops360-poc
         run: npm test
 
       - name: Check env lock
